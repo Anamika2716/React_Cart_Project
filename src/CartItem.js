@@ -13,7 +13,24 @@ class CartItem extends React.Component {
     }
     increaseQuantity=()=>{
         console.log("test",this.state);
+        //this.state.qty+=1;
+        //setState form 1  by giving it an object
+
+        //use when prev state is not required
+        // this.setState({
+        //         //     qty:this.state.qty+1 // merge it with state , and do shallow merging and after setState it will rerender with updated data
+        //         // })
+
+        //setState form 2 by passing function
+        //use this when prev state values are needed
+        this.setState((prevState)=>{
+            return {
+                qty: prevState.qty + 1 // again shallow merging
+            }
+        })
+
     }
+
     render() {
         const{price, title, qty}=this.state;
         return (
